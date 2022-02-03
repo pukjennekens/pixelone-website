@@ -1,9 +1,18 @@
+import classnames from 'classnames';
 import PropTypes from 'prop-types';
 
-const Title = ({ level, ...props }) => {
+const Title = ({ level, className, children, ...props }) => {
     const CustomTag = `${level}`;
+    const classNames = classnames(
+        `font-title text-blue-900 leading-tight`,
+        className
+    );
 
-    return <CustomTag {...props}>{props.children}</CustomTag>;
+    return (
+        <CustomTag className={classNames} {...props}>
+            {children}
+        </CustomTag>
+    );
 };
 
 Title.propTypes = {

@@ -8,7 +8,12 @@ module.exports = {
             colors: {
                 blue: {
                     50: '#F0FBFF',
+                    900: '#000B54',
                 },
+            },
+            fontFamily: {
+                title: ['Open Sans, sans-serif'],
+                subtitle: ['Segoe UI Variable, sans-serif'],
             },
         },
     },

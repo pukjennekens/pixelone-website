@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap');
+@import url('http://fonts.cdnfonts.com/css/segoe-ui-variable');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
