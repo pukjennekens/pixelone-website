@@ -24,7 +24,7 @@ const Header = () => {
                     </LinkButton>
                 </div>
 
-                <div className='w-full lg:w-1/2 h-auto'>
+                <div className='w-full lg:w-1/2 h-auto mt-16'>
                     <Lottie
                         isClickToPauseDisabled={true}
                         options={{
@@ -37,8 +37,8 @@ const Header = () => {
                             },
                             animationData: require('./animation.json'),
                         }}
-                        height={400}
-                        width={400}
+                        height='auto'
+                        width='auto'
                     />
                 </div>
             </Container>
