@@ -1,13 +1,7 @@
 import classnames from 'classnames';
 import { CSSTransition } from 'react-transition-group';
 
-const NavLinkDropdown = ({
-    children,
-    className,
-    isVisible,
-    setVisible,
-    ...props
-}) => {
+const MobileMenu = ({ className, children, toggled, ...props }) => {
     const classNames = classnames('', className);
 
     const defaultStyle = {
@@ -39,23 +33,21 @@ const NavLinkDropdown = ({
     };
 
     return (
-        <CSSTransition in={isVisible} timeout={300}>
+        <CSSTransition in={toggled} timeout={300}>
             {state => (
                 <div
                     style={{
                         ...defaultStyle,
                         ...transitionStyles[state],
                     }}
-                    onMouseEnter={() => (isVisible ? setVisible(true) : null)}
-                    onMouseLeave={() => setVisible(false)}
+                    className={classNames}
+                    {...props}
                 >
-                    <div {...props} className={classNames}>
-                        {children}
-                    </div>
+                    {children}
                 </div>
             )}
         </CSSTransition>
     );
 };
 
-export default NavLinkDropdown;
+export default MobileMenu;

@@ -1,18 +1,22 @@
 import classnames from 'classnames';
 import Image from 'next/image';
 import { useState } from 'react';
+import { Sling as Hamburger } from 'hamburger-react';
 
 import Container from '../Container/Container';
 import LinkButton from '../LinkButton/LinkButton';
 import NavLink from '../NavLink/NavLink';
 import NavLinkDropdown from '../NavLinkDropdown/NavLinkDropdown';
+import MobileMenu from '../MobileMenu/MobileMenu';
+import MobileMenuLink from '../MobileMenuLink/MobileMenuLink';
 import logo from '../../public/img/logo.jpg';
 
 const Navbar = ({ initialBgClass }) => {
-    const navbarClasses = classnames('py-6', initialBgClass);
+    const navbarClasses = classnames('pt-6', initialBgClass);
 
     const [servicesDropdownVisible, setServicesDropdownVisible] =
         useState(false);
+    const [mobileMenuVisible, setMobileMenuVisible] = useState(false);
 
     return (
         <nav className={navbarClasses}>
@@ -27,7 +31,7 @@ const Navbar = ({ initialBgClass }) => {
                         />
                     </div>
 
-                    <div className='flex flex-row gap-4'>
+                    <div className='flex-row gap-4 hidden lg:flex'>
                         <NavLink path='/'>Home</NavLink>
                         <NavLink path='/over'>Over</NavLink>
                         <NavLink
@@ -44,9 +48,29 @@ const Navbar = ({ initialBgClass }) => {
                         <NavLink path='/contact'>Contact</NavLink>
                     </div>
 
-                    <LinkButton href='/contact'>Contact</LinkButton>
+                    <LinkButton className='hidden lg:flex' href='/contact'>
+                        Contact
+                    </LinkButton>
+
+                    <div className='block lg:hidden'>
+                        <Hamburger
+                            toggled={mobileMenuVisible}
+                            toggle={setMobileMenuVisible}
+                        />
+                    </div>
                 </div>
             </Container>
+
+            <MobileMenu
+                toggled={mobileMenuVisible}
+                className='absolute w-full block lg:hidden'
+            >
+                <Container>
+                    <div className='bg-white rounded-lg px-4 py-4'>
+                        <MobileMenuLink path='/'>Home</MobileMenuLink>
+                    </div>
+                </Container>
+            </MobileMenu>
 
             <NavLinkDropdown
                 setVisible={setServicesDropdownVisible}
