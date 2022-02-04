@@ -7,10 +7,13 @@ import LinkButton from '../LinkButton/LinkButton';
 
 const Header = () => {
     return (
-        <header className='bg-blue-50 w-full h-auto lg:h-[600px] py-12 lg:py-0'>
-            <Container className='flex flex-col lg:flex-row items-center h-full justify-between'>
-                <div className='w-full lg:w-1/2 max-w-[450px] text-center lg:text-left'>
-                    <Title level='h1' className='font-title text-5xl'>
+        <header className='bg-blue-50 w-full h-auto md:h-[450px] py-12 md:py-0'>
+            <Container className='flex flex-col md:flex-row items-center h-full justify-between'>
+                <div className='w-full md:w-1/2 max-w-[450px] text-center md:text-left'>
+                    <Title
+                        level='h1'
+                        className='font-title text-3xl md:text-4xl'
+                    >
                         De perfecte plek om jouw website te laten maken 👾
                     </Title>
 
@@ -24,7 +27,7 @@ const Header = () => {
                     </LinkButton>
                 </div>
 
-                <div className='w-full lg:w-1/2 h-auto mt-16'>
+                <div className='w-full md:w-1/2 h-auto mt-16'>
                     <Lottie
                         isClickToPauseDisabled={true}
                         options={{

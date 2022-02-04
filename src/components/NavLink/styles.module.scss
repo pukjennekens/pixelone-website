@@ -1,0 +1,6 @@
+.nav_link {
+    &:hover::after {
+        content: '';
+        @apply absolute w-full top-0 h-20;
+    }
+}
